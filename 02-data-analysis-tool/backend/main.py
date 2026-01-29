@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+import sys
 import pandas as pd
 import subprocess
 from typing import List, Optional
@@ -113,7 +114,7 @@ df = pd.read_csv('temp_data.csv')
 
         # Execute
         result = subprocess.run(
-            ["python3", "generated_code.py"],
+            [sys.executable, "generated_code.py"],
             capture_output=True,
             text=True,
             timeout=10
